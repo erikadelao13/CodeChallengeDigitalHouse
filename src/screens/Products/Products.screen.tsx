@@ -10,11 +10,13 @@ import { useProducts } from '@hooks';
 import { styles } from './Products.styles';
 
 export const Products = () => {
-  const { products, totalPoints, selectProductType, productType } = useProducts();
+  const { products, totalPoints, selectProductType, productType, formatProductDates } =
+    useProducts();
   const navigation = useNavigation<NavigationProp<TAppStackParamsList>>();
 
   const renderProducts = ({ item, index }: { item: IProductsApi; index: number }) => {
     const lastElement = products.length - 1;
+    const formattedDate = formatProductDates(item?.createdAt);
     return (
       <TouchableOpacity
         style={{ marginBottom: lastElement === index ? moderateScale(40) : moderateScale(8) }}
@@ -26,14 +28,14 @@ export const Products = () => {
           product={item?.product}
           points={item?.points}
           isRedemption={item?.is_redemption}
-          date={item?.createdAt}
+          date={formattedDate || ''}
         />
       </TouchableOpacity>
     );
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID='products-screen'>
       <View style={styles.container}>
         <Typography variant='H2' bold>
           Bienvenido de vuelta!

@@ -11,10 +11,11 @@ export const ProductDetail = () => {
   const route = useRoute<RouteProp<TAppStackParamsList>>();
   const navigation = useNavigation<NavigationProp<TAppStackParamsList>>();
   const id = route?.params?.id;
-  const { product } = useProducts(id);
+  const { product, formatProductDates } = useProducts(id);
+  const formattedDate = formatProductDates(product?.createdAt);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID='product-detail-screen-test'>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.topContainer}>
           <Typography style={styles.productName} variant='H2' bold>
@@ -28,7 +29,7 @@ export const ProductDetail = () => {
               Detalles del producto:
             </Typography>
             <Typography style={styles.date} variant='H3' bold color={colors.black}>
-              Comprado el {product?.createdAt}
+              Comprado el {formattedDate}
             </Typography>
             <Typography variant='H4' bold color={colors.gray}>
               Con esta compra acumulaste:

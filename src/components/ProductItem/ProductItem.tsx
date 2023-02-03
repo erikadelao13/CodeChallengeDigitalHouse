@@ -14,7 +14,7 @@ export const ProductItem: React.FC<IProductItem> = ({
   isRedemption,
 }) => {
   return (
-    <View style={styles.productItemContainer}>
+    <View testID='product-item-test' style={styles.productItemContainer}>
       <View>
         <Image style={styles.image} source={{ uri: image }} />
       </View>

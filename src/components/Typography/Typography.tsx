@@ -15,31 +15,51 @@ export const Typography: React.FC<TTypographyProps> = ({
   switch (variant) {
     case 'H1':
       return (
-        <Text style={[bold ? styles.h1Bold : styles.h1, { color: color }, style]} {...rest}>
+        <Text
+          testID='typography-h1-test'
+          style={[bold ? styles.h1Bold : styles.h1, { color: color }, style]}
+          {...rest}
+        >
           {children}
         </Text>
       );
     case 'H2':
       return (
-        <Text style={[bold ? styles.h2Bold : styles.h2, { color: color }, style]} {...rest}>
+        <Text
+          testID='typography-h2-test'
+          style={[bold ? styles.h2Bold : styles.h2, { color: color }, style]}
+          {...rest}
+        >
           {children}
         </Text>
       );
     case 'H3':
       return (
-        <Text style={[bold ? styles.h3Bold : styles.h3, { color: color }, style]} {...rest}>
+        <Text
+          testID='typography-h3-test'
+          style={[bold ? styles.h3Bold : styles.h3, { color: color }, style]}
+          {...rest}
+        >
           {children}
         </Text>
       );
     case 'H4':
       return (
-        <Text style={[bold ? styles.h3Bold : styles.h4, { color: color }, style]} {...rest}>
+        <Text
+          testID='typography-h4-test'
+          style={[bold ? styles.h3Bold : styles.h4, { color: color }, style]}
+          {...rest}
+        >
           {children}
         </Text>
       );
     case 'P':
       return (
-        <Text style={[bold ? styles.pBold : styles.p, { color: color }, style]} {...rest}>
+        <Text
+          testID='typography-p-test'
+          style={[bold ? styles.pBold : styles.p, { color: color }, style]}
+          {...rest}
+        >
           {children}
         </Text>
       );

@@ -7,7 +7,7 @@ import { IButton } from './Button.types';
 
 export const Button: React.FC<IButton> = ({ onPress, text, textVariant }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity testID='button-component-test' onPress={onPress}>
       <View style={styles.buttonContainer}>
         <Typography style={styles.text} variant={textVariant} bold color={colors.white}>
           {text}

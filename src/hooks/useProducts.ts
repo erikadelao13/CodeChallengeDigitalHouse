@@ -78,5 +78,25 @@ export const useProducts = (id?: string | undefined) => {
     }
   };
 
-  return { products, product, totalPoints, selectProductType, productType };
+  const formatProductDates = (productDate: string | undefined) => {
+    if (productDate) {
+      const formattedDate = new Date(productDate);
+      const options: Intl.DateTimeFormatOptions = {
+        day: 'numeric',
+        year: 'numeric',
+        month: 'long',
+      };
+      const fullFormattedDate = formattedDate.toLocaleDateString('es-ES', options);
+      return fullFormattedDate;
+    }
+  };
+
+  return {
+    products,
+    product,
+    totalPoints,
+    selectProductType,
+    productType,
+    formatProductDates,
+  };
 };

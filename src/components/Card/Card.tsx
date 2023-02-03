@@ -7,7 +7,7 @@ import { ICard } from './Card.types';
 
 export const Card: React.FC<ICard> = ({ date, points }) => {
   return (
-    <View style={styles.cardContainer}>
+    <View testID='card-test' style={styles.cardContainer}>
       <Typography style={styles.date} variant='H3' bold color={colors.white}>
         {date}
       </Typography>
