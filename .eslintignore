@@ -1,0 +1,6 @@
+node_modules
+*.js
+babel.config.js
+__tests__
+jest.config.js
+png.d.ts

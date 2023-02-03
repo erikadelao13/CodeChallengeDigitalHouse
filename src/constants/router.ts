@@ -1,0 +1,4 @@
+export const APP_STACK = {
+  PRODUCTS: 'PRODUCTS',
+  PRODUCT_DETAIL: 'PRODUCT_DETAIL',
+} as const;
