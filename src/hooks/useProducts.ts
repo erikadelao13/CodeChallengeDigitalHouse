@@ -11,16 +11,28 @@ export const useProducts = (id?: string | undefined) => {
 
   useEffect(() => {
     (async () => {
-      const productsResult = await getProducts();
-      showProduct(productType, productsResult?.data);
+      try {
+        const productsResult = await getProducts();
+        showProduct(productType, productsResult?.data);
+      } catch (err) {
+        //TODO: Handle errors
+        // eslint-disable-next-line no-console
+        console.log('err', err);
+      }
     })();
   }, [productType]);
 
   useEffect(() => {
     (async () => {
-      if (id) {
-        const productResult = await getProductById(id);
-        setProduct(productResult?.data);
+      try {
+        if (id) {
+          const productResult = await getProductById(id);
+          setProduct(productResult?.data);
+        }
+      } catch (err) {
+        //TODO: Handle errors
+        // eslint-disable-next-line no-console
+        console.log('err', err);
       }
     })();
   }, []);
