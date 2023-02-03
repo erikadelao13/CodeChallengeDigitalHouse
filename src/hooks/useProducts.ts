@@ -8,39 +8,15 @@ export const useProducts = (id?: string | undefined) => {
   const [products, setProducts] = useState<Array<IProductsApi>>([]);
   const [product, setProduct] = useState<IProductsApi>();
   const [productType, setProductType] = useState(PRODUCT_TYPE.ALL);
+  const [totalPoints, setTotalPoints] = useState(0);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const productsResult = await getProducts();
-        showProduct(productType, productsResult?.data);
-      } catch (err) {
-        //TODO: Handle errors
-        // eslint-disable-next-line no-console
-        console.log('err', err);
-      }
-    })();
-  }, [productType]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        if (id) {
-          const productResult = await getProductById(id);
-          setProduct(productResult?.data);
-        }
-      } catch (err) {
-        //TODO: Handle errors
-        // eslint-disable-next-line no-console
-        console.log('err', err);
-      }
-    })();
-  }, []);
-
-  const totalPoints = products.reduce((acc, currentProduct) => {
-    if (currentProduct.is_redemption) return acc;
-    return acc + currentProduct.points;
-  }, 0);
+  const generateTotalPoints = (selectedProdData: Array<IProductsApi>) => {
+    const points = selectedProdData.reduce((acc, currentProduct) => {
+      if (currentProduct.is_redemption) return acc;
+      return acc + currentProduct.points;
+    }, 0);
+    setTotalPoints(points);
+  };
 
   const showProduct = (prodType: string, selectedProdData: Array<IProductsApi>) => {
     switch (prodType) {
@@ -90,6 +66,35 @@ export const useProducts = (id?: string | undefined) => {
       return fullFormattedDate;
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const productsResult = await getProducts();
+        generateTotalPoints(productsResult?.data);
+        showProduct(productType, productsResult?.data);
+      } catch (err) {
+        //TODO: Handle errors
+        // eslint-disable-next-line no-console
+        console.log('err', err);
+      }
+    })();
+  }, [productType]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        if (id) {
+          const productResult = await getProductById(id);
+          setProduct(productResult?.data);
+        }
+      } catch (err) {
+        //TODO: Handle errors
+        // eslint-disable-next-line no-console
+        console.log('err', err);
+      }
+    })();
+  }, []);
 
   return {
     products,
