@@ -1,7 +1,7 @@
 # CodeChallengeDigitalHouse
 
-## Products Screen:
-![Uploading simulator_screenshot_9F7BB1B7-8958-4B87-8056-0D3817FAB24E.png…]()
+## Products Screen (Filtro de todos seleccionado):
+![simulator_screenshot_0567439A-FC27-44C4-A0B5-7140F9AD8BCE](https://user-images.githubusercontent.com/28150325/216534481-234e15a2-2d71-4003-99a2-31fbf73f1e6e.png)
 
 ## Product Detail Screen:
 ![simulator_screenshot_529B2233-E131-498C-AD14-CBD64E30F161](https://user-images.githubusercontent.com/28150325/216534246-718e424d-d2fb-422f-a9e8-59e5695ea952.png)
