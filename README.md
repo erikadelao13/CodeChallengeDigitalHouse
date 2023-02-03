@@ -1,5 +1,8 @@
 # CodeChallengeDigitalHouse
 
+## Video con todo el comportamiento del app:
+[Simulator Screen Recording - iPhone 12 Pro - 2023-02-03 at 01.10.16.mp4.zip](https://github.com/erikadelao13/CodeChallengeDigitalHouse/files/10576419/Simulator.Screen.Recording.-.iPhone.12.Pro.-.2023-02-03.at.01.10.16.mp4.zip)
+
 ## Products Screen (Filtro de todos seleccionado):
 ![simulator_screenshot_0567439A-FC27-44C4-A0B5-7140F9AD8BCE](https://user-images.githubusercontent.com/28150325/216534481-234e15a2-2d71-4003-99a2-31fbf73f1e6e.png)
 
